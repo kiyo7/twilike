@@ -2,7 +2,7 @@ module ApplicationHelper
 
     #ページごとにタイトルを変える
   def full_title(page_title = '')
-    base_title = "Ruby on Rails Tutorial Sample App"
+    base_title = "TwiLike"
     if page_title.empty?
       base_title
     else

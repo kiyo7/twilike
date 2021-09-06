@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   #users_controller
   get  '/signup', to:'users#new'
 
+  resources :users
+
   # to: '~'の後に ,as: "別名"とすると名前付きルートを変更できる
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
