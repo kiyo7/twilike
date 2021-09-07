@@ -14,6 +14,11 @@ Rails.application.routes.draw do
 
   resources :users
 
+  #sessions_controller
+  get '/login', to:'sessions#new'
+  post '/login', to:'sessions#create'
+  delete '/logout', to:'sessions#destroy'
+
   # to: '~'の後に ,as: "別名"とすると名前付きルートを変更できる
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
