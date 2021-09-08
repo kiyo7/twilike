@@ -4,7 +4,8 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
+    if user &.authenticate(params[:session][:password]) 
+      #↑user && user.メソッドの短縮系(&. "ぼっち演算子")
       log_in user #sessions_helperのメソッド
       redirect_to user #userのプロフィールページへ
     else

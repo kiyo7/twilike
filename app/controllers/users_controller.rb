@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in @user #新規登録後流れでログインさせる
       flash[:success] = 'ようこそTwiLikeへ!'
       redirect_to @user #redirect_to user_url(@user)と同じ
     else
