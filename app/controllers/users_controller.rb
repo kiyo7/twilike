@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+
+
   def new
     @user = User.new
   end
@@ -22,11 +24,20 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = 'プロフィールが更新されました！'
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   #フォームに入力された値をparamsで直接渡してはいけないのでStrongParameterを使う
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
-
 end
