@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   post '/login', to:'sessions#create'
   delete '/logout', to:'sessions#destroy'
 
+  #account_activations_controller
+  resources :account_activations, only: [:edit]
+
   # to: '~'の後に ,as: "別名"とすると名前付きルートを変更できる
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
