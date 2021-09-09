@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user &.authenticate(params[:session][:password]) 
       #↑user && user.メソッドの短縮系(&. "ぼっち演算子")
       log_in user #sessions_helperのメソッド
-      remember user
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to user #userのプロフィールページへ
     else
        flash.now[:danger] = '存在しないユーザーまたはパスワードが違います' 
@@ -19,5 +19,4 @@ class SessionsController < ApplicationController
     log_out if logged_in?
     redirect_to root_url
   end
-
 end
