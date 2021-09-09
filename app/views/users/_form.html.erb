@@ -1,0 +1,21 @@
+  <%# Railsのform_withは既存のユーザーは更新、新規は追加を自動で使い分けてくれる %>
+    <%= form_with(model: @user, local:true) do |f| %>
+    <%= render 'shared/error_messages' %>
+      <%= f.label :name, "名前" %>
+      <%= f.text_field :name, class: 'form-control' %>
+      
+      <%= f.label :email, "メールアドレス" %>
+      <%= f.text_field :email, class: 'form-control' %>
+
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, 'パスワード確認' %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit yield(:btn_text), class: 'btn btn-primary' %>
+    <% end %>
+
+
+<%# Railsはform_with(@user)を使ってフォームを構成する時@user.new_record?がtrueの時にはPOSTリクエストを、falseの時にはPATCHリクエストを使い分けてくれる %>
+
