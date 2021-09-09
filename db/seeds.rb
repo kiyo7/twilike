@@ -5,11 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# メインのサンプルユーザーを1人作成する
+# メインのサンプルユーザーを1人作成する(管理者権限有り)
 User.create!(name:  "Example User",
              email: "example@railstutorial.org",
              password:              "foobar",
-             password_confirmation: "foobar")
+             password_confirmation: "foobar",
+             admin: true)
 
 # 追加のユーザーをまとめて生成する
 99.times do |n|
