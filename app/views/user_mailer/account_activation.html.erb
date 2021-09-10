@@ -1,0 +1,13 @@
+<h1>メールアドレス認証</h1>
+
+
+<p>Hello,<%= @user.name %></p>
+
+<p>Twitter風アプリTwiLikeへようこそ!</p>
+
+<%= link_to "認証する", edit_account_activation_url(@user.activation_token, email: @user.email) %>
+
+<br />
+<br />
+<br />
+<%=  image_tag("rails.svg", alt: "Rails logo", width: "200px") %>
