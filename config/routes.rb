@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'password_resets/new'
+  get 'password_resets/edit'
   root 'static_pages#home'
 
   # getルールを使って変更すると、GETリクエストが /help に送信されたときにStaticPagesコントローラーのhelpアクションを呼び出すようになる(また、help_pathやhelp_urlといった名前付きルートも使えるようになる)
@@ -21,6 +23,9 @@ Rails.application.routes.draw do
 
   #account_activations_controller
   resources :account_activations, only: [:edit]
+  
+  #password_resets_controller
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
   # to: '~'の後に ,as: "別名"とすると名前付きルートを変更できる
 
