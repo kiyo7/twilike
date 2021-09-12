@@ -2,7 +2,8 @@
   <div id="error_explanation">
     <div class="alert alert-danger">
         <%# pluralizeは第2引数の文字列を第1の整数に基づいて英単語を複数形にするヘルパー %>
-        The form contains <%= pluralize(@user.errors.count, 'error')%>.
+        <%# The form contains <%= pluralize(@user.errors.count, 'error')%>
+        <%= @user.errors.count %>個のエラー
     </div>
   <ul>
     <% @user.errors.full_messages.each do |message| %>

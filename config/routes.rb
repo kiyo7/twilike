@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   #password_resets_controller
   resources :password_resets, only: [:new, :create, :edit, :update]
 
+  # microposts_controller
+  resources :microposts, only: [:create, :destroy]
+
   # to: '~'の後に ,as: "別名"とすると名前付きルートを変更できる
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
