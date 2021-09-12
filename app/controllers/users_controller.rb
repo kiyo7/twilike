@@ -48,20 +48,17 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  #################################################################
+
   private
+
+  #################################################################
 
   #フォームに入力された値をparamsで直接渡してはいけないのでStrongParameterを使う
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end 
-    # ログイン済みユーザーかどうか確認(before_action)
-    def logged_in_user?
-      unless logged_in? # ←ログインしていなかったら
-        store_location #ログイン前にアクセスしたページを記憶
-        flash[:danger] = "ログインが必要です！"
-        redirect_to login_url
-      end
-    end
+
 
     # 正しいユーザーかどうかを確認
     def correct_user
