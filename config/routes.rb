@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   #users_controller
   get  '/signup', to:'users#new'
 
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 
   #sessions_controller
   get '/login', to:'sessions#new'
@@ -29,6 +33,9 @@ Rails.application.routes.draw do
 
   # microposts_controller
   resources :microposts, only: [:create, :destroy]
+
+  #relationships_controller
+  resources :relationships, only: [:create, :destroy]
 
   # to: '~'の後に ,as: "別名"とすると名前付きルートを変更できる
 
